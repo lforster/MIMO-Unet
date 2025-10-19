@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mimo-unet-forked"
+version = "0.1.0"
+description = "Multi-Input Multi-Output U-Net for image processing tasks"
+readme = "Readme.md"
+requires-python = ">=3.8"
+
+dependencies = [
+  "lightning==2.0.9",
+  "torch==2.0.1",
+  "torchvision==0.15.2",
+  "pandas",
+  "numpy",
+  "matplotlib",
+  "seaborn",
+  "torchmetrics",
+  "h5py",
+  "scipy",
+  "opencv-python",
+  "imageio",
+  "tqdm",
+  "wandb"
+]
+
+[tool.setuptools]
+packages = ["mimo"]
