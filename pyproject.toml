@@ -26,5 +26,6 @@ dependencies = [
   "wandb"
 ]
 
-[tool.setuptools]
-packages = ["mimo"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mimo*"]
