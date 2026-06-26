@@ -70,7 +70,7 @@ class MimoUnetModel(pl.LightningModule):
             encoder_dropout_rate=self.encoder_dropout_rate,
             core_dropout_rate=self.core_dropout_rate,
             decoder_dropout_rate=self.decoder_dropout_rate,
-            bilinear=True,
+            bilinear=False,
             use_pooling_indices=False,
         )
 
