@@ -79,7 +79,6 @@ class Up(nn.Module):
             self.conv = DoubleConv(
                 in_channels=in_channels, 
                 out_channels=out_channels, 
-                mid_channels=in_channels // 2, 
                 groups=groups, 
                 dropout_rate=dropout_rate,
             )
@@ -97,7 +96,7 @@ class Up(nn.Module):
                 in_channels, in_channels // 2, kernel_size=2, stride=2, groups=groups,
             )
             self.conv = DoubleConv(
-                in_channels=in_channels, 
+                in_channels=in_channels // 2 + out_channels,
                 out_channels=out_channels, 
                 groups=groups, 
                 dropout_rate=dropout_rate,

@@ -192,7 +192,6 @@ class MimoUnetModel(pl.LightningModule):
             optimizer, 
             step_size=self.scheduler_step_size,
             gamma=self.scheduler_gamma, 
-            verbose=True,
         )
         return dict(
             optimizer=optimizer,

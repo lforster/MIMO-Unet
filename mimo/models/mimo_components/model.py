@@ -108,7 +108,7 @@ class MimoUNet(nn.Module):
         """
 
         x1s, x2s, ind2s = self.encoder(x)
-        
+
         # concatenate along channel dimension
         x2_concat = torch.cat(x2s, axis=1)
 
@@ -262,7 +262,7 @@ class SubnetworkDecoder(nn.Module):
         self.up4s = create_module_list(
             module=Up,
             num_subnetworks=num_subnetworks,
-            in_channels=2 * filter_base_count * num_subnetworks // self.factor + filter_base_count,
+            in_channels=2*filter_base_count * num_subnetworks // self.factor, # + filter_base_count,
             out_channels=filter_base_count,
             bilinear=bilinear,
             use_pooling_indices=use_pooling_indices,
@@ -293,5 +293,4 @@ class SubnetworkDecoder(nn.Module):
             x_i = self.up4s[i](x, x1s[i], ind2s[i])
             x_i = self.final_dropouts[i](x_i)
             logits.append(self.outcs[i](x_i))
-        
         return torch.stack(logits, axis=1)
